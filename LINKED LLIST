@@ -1,0 +1,51 @@
+import java.util.Scanner;
+class List{
+    Node head;
+static class Node{
+    int data;
+    Node next;
+ Node(int d){
+     data = d;
+     next = null;
+ }
+}
+ public void check(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node curr = head;
+             while (curr.next != null) {
+                curr = curr.next;
+            }
+            curr.next = newNode;
+        }
+    }
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        List li = new List ();
+        System.out.print("No. of elements you want to add: ");
+        int n = sc.nextInt();
+        System.out.println("Enter " + n + " integers");
+        for(int i=0;i<=n;i++){
+            System.out.println("The number is : ");
+            int data = sc.nextInt();
+            li.check(data);
+        }
+          System.out.print("The linked list elements are: ");
+          li.print();
+        sc.close();
+    }
+}
+
+
